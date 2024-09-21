@@ -160,6 +160,22 @@ function saveData(event) {
 }
 
 function exportData() {
+    console.log("Fonction exportData() appelée");
+    
+    let exportData = [['Date', 'Repas', 'Eau', 'Activite (min)']];
+    console.log("healthData:", healthData);
+    
+    for (let date in healthData) {
+        exportData.push([
+            date,
+            healthData[date].mealStatus,
+            healthData[date].waterGoal ? 'Oui' : 'Non',
+            healthData[date].activityTime
+        ]);
+    }
+
+    console.log("Données à exporter:", exportData);
+
         // Créer un contenu XLS
         let xlsContent = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Feuille1</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>';
     
@@ -184,6 +200,7 @@ function exportData() {
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link);
+        console.log("Exportation terminée");
     }
 
 
