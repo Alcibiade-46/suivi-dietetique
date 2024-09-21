@@ -160,11 +160,7 @@ function saveData(event) {
 }
 
 function exportData() {
-    console.log("Fonction exportData() appelée");
-    
     let exportData = [['Date', 'Repas', 'Eau', 'Activite (min)']];
-    console.log("healthData:", healthData);
-    
     for (let date in healthData) {
         exportData.push([
             date,
@@ -174,35 +170,17 @@ function exportData() {
         ]);
     }
 
-    console.log("Données à exporter:", exportData);
+    let csvContent = "data:text/csv;charset=utf-8," 
+        + exportData.map(e => e.join(",")).join("\n");
 
-        // Créer un contenu XLS
-        let xlsContent = '<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns="http://www.w3.org/TR/REC-html40"><head><!--[if gte mso 9]><xml><x:ExcelWorkbook><x:ExcelWorksheets><x:ExcelWorksheet><x:Name>Feuille1</x:Name><x:WorksheetOptions><x:DisplayGridlines/></x:WorksheetOptions></x:ExcelWorksheet></x:ExcelWorksheets></x:ExcelWorkbook></xml><![endif]--></head><body><table>';
-    
-        exportData.forEach(row => {
-            xlsContent += '<tr>';
-            row.forEach(cell => {
-                xlsContent += `<td>${cell}</td>`;
-            });
-            xlsContent += '</tr>';
-        });
-        
-        xlsContent += '</table></body></html>';
-    
-        // Créer un Blob avec le contenu XLS
-        const blob = new Blob([xlsContent], { type: 'application/vnd.ms-excel' });
-        const url = URL.createObjectURL(blob);
-    
-        // Créer un lien de téléchargement et cliquer dessus
-        const link = document.createElement("a");
-        link.setAttribute("href", url);
-        link.setAttribute("download", "suivi_sante.xls");
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        console.log("Exportation terminée");
-    }
-
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement("a");
+    link.setAttribute("href", encodedUri);
+    link.setAttribute("download", "suivi_sante.csv");
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
 
 function resetData() {
     if (confirm("Êtes-vous sûr de vouloir réinitialiser toutes les données ? Cette action est irréversible.")) {
