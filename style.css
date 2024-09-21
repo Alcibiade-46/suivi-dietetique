@@ -1,0 +1,368 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #f5a623;
+    --background-color: #f0f4f8;
+    --text-color: #333;
+    --success-color: #7ed321;
+    --warning-color: #f5a623;
+    --danger-color: #d0021b;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+#login-screen {
+    background-color: var(--background-color);
+}
+
+#login-screen h1 {
+    margin-bottom: 20px;
+    color: var(--primary-color);
+}
+
+#password-input {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+#login-button {
+    width: 100%;
+    max-width: 300px;
+    padding: 10px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#login-button:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+#app {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+header {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 8px 8px 0 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+main {
+    background-color: white;
+    border-radius: 0 0 8px 8px;
+    padding: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+section {
+    margin-bottom: 1rem;
+}
+
+#calendar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 5px;
+    margin-bottom: 1rem;
+}
+
+.calendar-day {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.calendar-day:hover {
+    background-color: var(--background-color);
+}
+
+.calendar-day .date {
+    font-weight: bold;
+    font-size: 0.8em;
+    margin-bottom: 2px;
+}
+
+.calendar-day .icons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2px;
+}
+
+.calendar-day .icons i {
+    font-size: 1em;
+}
+
+.form-group {
+    margin-bottom: 0.5rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-size: 0.9em;
+}
+
+input[type="date"] {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.button-group {
+    display: flex;
+    gap: 5px;
+}
+
+.button-group button {
+    flex: 1;
+    padding: 0.5rem;
+    border: none;
+    background-color: #f0f0f0;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 20px;
+    font-size: 0.8em;
+}
+
+.button-group button.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.water-goal-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: white;
+    border: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0 auto;
+}
+
+.water-goal-button i {
+    color: var(--primary-color);
+    font-size: 1.2em;
+}
+
+.water-goal-button.active {
+    background-color: var(--primary-color);
+}
+
+.water-goal-button.active i {
+    color: white;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+}
+
+button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+}
+
+button:hover {
+    background-color: darken(var(--primary-color), 10%);
+}
+
+#health-form button[type="submit"] {
+    background-color: var(--success-color);
+    width: 100%;
+    display: block;
+    margin: 1rem auto;
+    padding: 0.75rem 1.5rem;
+    font-size: 1em;
+}
+
+#health-form button[type="submit"]:hover {
+    background-color: darken(var(--success-color), 10%);
+}
+
+footer {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.success { color: var(--success-color); }
+.warning { color: var(--warning-color); }
+.danger { color: var(--danger-color); }
+.neutral { color: #999; }
+
+#monthly-stats {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.stat-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.stat-card h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+    font-size: 0.9em;
+}
+
+.stat-card p {
+    font-size: 1.1em;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.button-group button[data-value="2"] { background-color: #7ed321; }
+.button-group button[data-value="1"] { background-color: #f5a623; }
+.button-group button[data-value="0"] { background-color: #d0021b; }
+
+.button-group button[data-value="2"]:before { content: "\f2e7"; }
+.button-group button[data-value="1"]:before { content: "\f2e7"; }
+.button-group button[data-value="0"]:before { content: "\f2e7"; }
+
+.button-group button:before {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    margin-right: 5px;
+}
+
+.calendar-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.calendar-navigation button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 0.8em;
+}
+
+#current-week {
+    font-size: 0.9em;
+    text-align: center;
+    flex-grow: 1;
+    margin: 0 0.5rem;
+}
+
+#health-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 600px) {
+    body {
+        font-size: 14px;
+    }
+
+    #app {
+        padding: 5px;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1.1rem;
+    }
+
+    .calendar-day {
+        padding: 3px;
+    }
+    
+    .calendar-day .date {
+        font-size: 0.7em;
+    }
+    
+    .calendar-day .icons i {
+        font-size: 0.9em;
+    }
+
+    .button-group button {
+        padding: 0.3rem;
+        font-size: 0.7em;
+    }
+
+    .water-goal-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .water-goal-button i {
+        font-size: 1em;
+    }
+
+    #health-form button[type="submit"] {
+        padding: 0.5rem 1rem;
+        font-size: 0.9em;
+    }
+}
