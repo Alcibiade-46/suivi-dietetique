@@ -336,7 +336,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/service-worker.js').then(registration => {
+      navigator.serviceWorker.register('/suivi-dietetique/service-worker.js', {scope: '/suivi-dietetique/'}).then(registration => {
         console.log('ServiceWorker registered: ', registration.scope);
         
         registration.addEventListener('updatefound', () => {
